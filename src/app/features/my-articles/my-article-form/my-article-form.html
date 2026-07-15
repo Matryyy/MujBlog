@@ -1,0 +1,24 @@
+<div class="form-container">
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+        <h2>{{ isEditMode ? 'Úprava článku' : 'Vytvoření nového článku' }}</h2>
+
+        <div class="form-group">
+            <label for="title">Titulek článku:</label>
+            <input id="title" type="text" formControlName="title" placeholder="Napiš název...">
+        </div>
+
+        <div class="form-group">
+            <label for="content">Obsah článku:</label>
+            <textarea id="content" formControlName="content" rows="6" placeholder="Napiš text článku..."></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="articleForm.invalid">
+                {{ isEditMode ? 'Uložit změny' : 'Vytvořit článek' }}
+            </button>
+
+            <a routerLink="/my-articles" class="btn-cancel">Zrušit</a>
+        </div>
+        
+    </form>
+</div>

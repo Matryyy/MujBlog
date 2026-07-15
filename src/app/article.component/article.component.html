@@ -1,0 +1,9 @@
+<div class="article-card">
+  <h3>{{ article.title }}</h3>
+  <p>{{ article.content }}</p>
+  <div class="article-meta">
+    <span>Autor: {{ article.author }}</span>
+    <span>Publikováno: {{ article.publishDate | date:'mediumDate' }}</span>
+  </div>
+  <ng-content></ng-content> 
+</div>

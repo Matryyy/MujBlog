@@ -1,0 +1,20 @@
+<div class="article-detail-container">
+  @if (currentArticle(); as currentArticle) {
+    <article class="article-detail">
+      <h1>{{ currentArticle.title }}</h1>
+      <p class="meta-date">Vytvořeno: {{ currentArticle.createdAt | date:'short' }}</p>
+      
+      <div class="article-content">
+        {{ currentArticle.content }}
+      </div>
+      <div class="article-actions" style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: flex-end;">
+        <a (click)="deleteArticle(currentArticle.id)" class="btn-danger">❌ Smazat</a>
+      </div>
+    </article>
+  } @else {
+    <p class="error-message">Článek nebyl nalezen.</p>
+  }
+
+  <a routerLink="/my-articles" class="btn-back">⬅ Zpět na seznam mých článků</a>
+  <hr>
+</div>

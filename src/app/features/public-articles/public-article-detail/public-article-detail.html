@@ -1,0 +1,23 @@
+<div class="public-article-detail-container">
+    @switch (article()) {
+        @case (null) {
+            <p class="loading-text">Načítání článku...</p>
+        }
+        @default {
+            @if (article(); as item) {
+                <article class="public-article">
+                    <h1>{{ item.title }}</h1>
+                    <p style="color: #697d73; font-weight: 600; margin-bottom: 2rem;">
+                      Napsal(a): {{ item.author }} • {{ item.created_at | date:'longDate' }}
+                    </p>
+                    <div class="article-body" style="white-space: pre-line; line-height: 1.7;">
+                        {{ item.text }} 
+                    </div>
+                </article>
+            }
+        }
+    }
+
+    <hr style="margin-top: 3rem;">
+    <a routerLink="/public-articles" class="btn-back">⬅ Zpět na seznam veřejných článků</a>
+</div>

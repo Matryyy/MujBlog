@@ -1,0 +1,15 @@
+.form-container {
+  max-width: 650px;
+  margin: 3rem auto; /* Vycentruje formulář doprostřed stránky */
+  padding: 2rem;
+  background-color: var(--pico-card-background-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
