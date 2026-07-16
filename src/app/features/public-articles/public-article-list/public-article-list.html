@@ -1,5 +1,7 @@
 <div class="public-articles-container">
-  <h2 style="margin-bottom: 2rem;">Veřejné články</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h2>Veřejné články</h2>
+  </div>
 
   <div class="article-grid">
     @for (article of publicArticles(); track article.id) {
@@ -11,8 +13,11 @@
                 </p>
                 <p class="article-preview">{{ article.text | preview:100 }}</p>
             </div>
-            <div class="card-actions" style="display: flex; margin-top: 1.5rem;">
-                <a [routerLink]="['/public-articles', article.id]" class="outline" style="width: 100%;">Zobrazit detail</a>
+            
+            <div class="card-actions" style="display: flex; gap: 10px; margin-top: 1.5rem;">
+                <a [routerLink]="['/public-articles', article.id]" class="outline" style="flex: 1; text-align: center; line-height: 40px;">
+                  Zobrazit detail
+                </a>
             </div>
         </article>
     } @empty {

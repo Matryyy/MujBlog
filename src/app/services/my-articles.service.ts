@@ -60,12 +60,12 @@ export class MyArticles {
 
     deleteMyArticle(id: string): Observable<boolean> {
         if (!isPlatformBrowser(this.platformId)) {
-            return of(false); // Vrací Observable s false, pokud není v prohlížeči
+            return of(false); 
         }
         this.myArticlesSignal.update((articles) =>
             articles.filter((article) => article.id !== id)
         );
         localStorage.setItem('articles', JSON.stringify(this.myArticlesSignal()));
-        return of(true); // Vrací Observable s true pro úspěch
+        return of(true); 
     }
 }

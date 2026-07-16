@@ -12,12 +12,19 @@
             <textarea id="content" formControlName="content" rows="6" placeholder="Napiš text článku..."></textarea>
         </div>
 
-        <div class="form-actions">
-            <button type="submit" [disabled]="articleForm.invalid">
-                {{ isEditMode ? 'Uložit změny' : 'Vytvořit článek' }}
-            </button>
+        <div class="form-actions" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <app-button 
+              [label]="isEditMode ? 'Uložit změny' : 'Vytvořit článek'" 
+              type="primary" 
+              [disabled]="articleForm.invalid"
+              (btnClick)="onSubmit()">
+            </app-button>
 
-            <a routerLink="/my-articles" class="btn-cancel">Zrušit</a>
+            <app-button 
+              label="Zrušit" 
+              type="secondary" 
+              (btnClick)="cancel()">
+            </app-button>
         </div>
         
     </form>

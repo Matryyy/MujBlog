@@ -19,5 +19,10 @@
     }
 
     <hr style="margin-top: 3rem;">
-    <a routerLink="/public-articles" class="btn-back">⬅ Zpět na seznam veřejných článků</a>
+    
+    <app-button 
+      label="Zpět na seznam veřejných článků" 
+      type="secondary" 
+      (btnClick)="goBackToList()">
+    </app-button>
 </div>

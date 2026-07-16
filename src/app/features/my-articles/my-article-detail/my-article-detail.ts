@@ -1,17 +1,18 @@
 import { Component, inject, computed, input } from '@angular/core';
 import { MyArticles } from '../../../services/my-articles.service';
-import { Router, RouterLink } from '@angular/router'; // Přidáno Router, RouterLink do imports
+import { Router, RouterLink } from '@angular/router'; 
 import { DatePipe } from '@angular/common';
+import { ButtonComponent } from '../../../components/button/button';
 
 @Component({
   selector: 'app-my-article-detail',
-  imports: [RouterLink, DatePipe], // Zde je potřeba přidat RouterLink
+  imports: [RouterLink, DatePipe, ButtonComponent], 
   templateUrl: './my-article-detail.html',
   styleUrl: './my-article-detail.css',
 })
 export class MyArticleDetail {
   private myArticlesService = inject(MyArticles);
-  private router = inject(Router); // Injektujeme Router pro programovou navigaci
+  private router = inject(Router); 
   readonly id = input<string>();
 
   deleteArticle(articleId: string): void {
@@ -20,7 +21,7 @@ export class MyArticleDetail {
         next: (success) => {
           if (success) {
             console.log(`Článek s ID ${articleId} byl úspěšně smazán.`);
-            this.router.navigate(['/my-articles']); // Přesměrování na seznam článků
+            this.router.navigate(['/my-articles']); 
           } else {
             alert('Nepodařilo se smazat článek. Zkuste to prosím znovu.');
           }
@@ -31,6 +32,10 @@ export class MyArticleDetail {
         }
       });
     }
+  }
+
+  goBackToList() {
+    this.router.navigate(['/my-articles']);
   }
 
   currentArticle = computed(() => {
