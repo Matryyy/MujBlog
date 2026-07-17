@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 export class PublicArticles {
     private http = inject(HttpClient);
     private readonly apiUrl = 'https://6875218fdd06792b9c96e3d0.mockapi.io/articles';
-    getPublicArticles() {
+    getPublicArticles(): unknown {
         return this.http.get<Article[]>(this.apiUrl);
     }
-    getPublicArticleByID(id: string) {
+    getPublicArticleByID(id: string): unknown {
         return this.http.get<Article>(`${this.apiUrl}/${id}`);
     }
 }

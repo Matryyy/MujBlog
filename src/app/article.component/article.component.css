@@ -1,0 +1,29 @@
+.article-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.article-author {
+  color: #697d73;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.card-actions a.outline {
+  flex: 1;
+  text-align: center;
+}
+
+.card-actions > * {
+    flex: 1;
+    text-align: center;
+}

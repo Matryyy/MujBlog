@@ -13,9 +13,9 @@ export class ButtonComponent {
   type = input<'primary' | 'secondary' | 'danger'>('primary');
   disabled = input<boolean>(false);
 
-  btnClick = output<void>();
+  btnClick = output();
 
-  onClick() {
+  onClick(): void {
     if (!this.disabled()) {
       this.btnClick.emit();
     }

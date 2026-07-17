@@ -3,7 +3,8 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "e490f5b2-9e03-4e26-8c39-c7041e95b35b"
+    "analytics": "e490f5b2-9e03-4e26-8c39-c7041e95b35b",
+    "schematicCollections": ["angular-eslint"]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -25,10 +26,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "node_modules/@picocss/pico/css/pico.min.css",
-              "src/styles.css"
-            ],
+            "styles": ["node_modules/@picocss/pico/css/pico.min.css", "src/styles.css"],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -76,6 +74,12 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
       }
     }

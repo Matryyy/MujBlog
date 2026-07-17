@@ -1,10 +1,11 @@
 import { Component, inject, input } from '@angular/core';
 import { PublicArticles } from '../../../services/public-articles.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { switchMap, filter } from 'rxjs';
+import { switchMap, filter, Observable } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router'; 
 import { DatePipe } from '@angular/common';
+import { Article } from '../../../article.model';
 import { ButtonComponent } from '../../../components/button/button';
 
 @Component({
@@ -22,14 +23,12 @@ export class PublicArticleDetail {
   readonly article = toSignal(
     toObservable(this.id).pipe(
       filter((currentId): currentId is string => !!currentId),
-      switchMap((currentId) =>
-        this.publicArticlesService.getPublicArticleByID(currentId)
-      )
+      switchMap((currentId) => this.publicArticlesService.getPublicArticleByID(currentId) as Observable<Article | undefined>)
     ),
     { initialValue: null }
   );
 
-  goBackToList() {
-    this.router.navigate(['/public-articles']); 
+  goBackToList(): Promise<boolean> {
+    return this.router.navigate(['/public-articles']);
   }
 }

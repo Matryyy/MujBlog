@@ -25,7 +25,7 @@ export class MyArticleForm implements OnInit {
     content: this.fb.control<string>('', { nonNullable: true })
   });
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.articleId = this.route.snapshot.paramMap.get('id');
     if (this.articleId) {
       this.isEditMode = true;
@@ -39,7 +39,7 @@ export class MyArticleForm implements OnInit {
     } 
   }  
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.articleForm.valid) {
       const { title, content } = this.articleForm.value;
       if (this.articleForm.invalid|| !title || !content) {
@@ -50,11 +50,11 @@ export class MyArticleForm implements OnInit {
       } else {
         this.myArticlesService.addMyArticle(title, content);
       }
-      this.router.navigate(['/my-articles']);
+      void this.router.navigate(['/my-articles']);
     }
   }
 
-  cancel() {
-    this.router.navigate(['/my-articles']);
+  cancel(): void {
+    void this.router.navigate(['/my-articles']);
   }
 }

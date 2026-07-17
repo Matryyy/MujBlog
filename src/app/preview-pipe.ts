@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true
 })
 export class PreviewPipe implements PipeTransform {
-  transform(value: string | null | undefined, limit: number = 100): string {
+  transform(value: string | null | undefined, limit = 100): string {
     if (!value) {
       return '';
     }

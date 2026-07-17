@@ -5,5 +5,4 @@ export interface Article {
   text?: string;
   author?: string;
   created_at?: string;
-  createdAt?: string;
 }

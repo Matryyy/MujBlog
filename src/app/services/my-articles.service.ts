@@ -1,5 +1,5 @@
 import { Article } from '../article.model';
-import { effect, Injectable, signal, inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, signal, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { of, Observable } from 'rxjs';
 
@@ -14,22 +14,22 @@ export class MyArticles {
     }
 
 
-    loadFromStorage() {
+    loadFromStorage(): void {
         if (!isPlatformBrowser(this.platformId)) {
             return;
         }
 
         const storedArticles = localStorage.getItem('articles');
         if (storedArticles) {
-            this.myArticlesSignal.set(JSON.parse(storedArticles));
+            this.myArticlesSignal.set(JSON.parse(storedArticles) as Article[]);
         }
     }
 
-    getMyArticleByID(id: string) {
+    getMyArticleByID(id: string): Article | undefined {
         return this.myArticlesSignal().find((article) => article.id === id);
     }
 
-    addMyArticle(title: string, content: string) {
+    addMyArticle(title: string, content: string): void {
         if (!isPlatformBrowser(this.platformId)) {
             return;
         }
@@ -39,14 +39,14 @@ export class MyArticles {
                 id: crypto.randomUUID(),
                 title,
                 content,
-                createdAt: new Date().toISOString(),
+                created_at: new Date().toISOString(),
             },
         ]);
 
         localStorage.setItem('articles', JSON.stringify(this.myArticlesSignal()));
     }
 
-    updateMyArticle(id: string, title: string, content: string) {
+    updateMyArticle(id: string, title: string, content: string): void {
         if (!isPlatformBrowser(this.platformId)) {
             return;
         }

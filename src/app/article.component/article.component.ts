@@ -1,22 +1,20 @@
-import { DatePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Article } from '../article.model';
+import { PreviewPipe } from "../preview-pipe";
+import { ButtonComponent } from "../components/button/button";
 
-export interface Article {
-  id: string;
-  title: string;
-  content: string;
-  author: string;
-  publishDate: Date;
-  createdAt: Date;
-}
 
 @Component({
-  selector: 'app-article.component',
+  selector: 'app-article',
   standalone: true,
-  imports: [DatePipe],
+  imports: [PreviewPipe, ButtonComponent],
   templateUrl: './article.component.html',
   styleUrl: './article.component.css',
 })
 export class ArticleComponent {
-  @Input() article!: Article;
+  onDelete(): void {
+    throw new Error('Method not implemented.');
+}
+  readonly adminMode = input<boolean>(false);
+  readonly article = input.required<Article>();
 }

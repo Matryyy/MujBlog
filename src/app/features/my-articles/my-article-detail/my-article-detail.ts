@@ -21,7 +21,7 @@ export class MyArticleDetail {
         next: (success) => {
           if (success) {
             console.log(`Článek s ID ${articleId} byl úspěšně smazán.`);
-            this.router.navigate(['/my-articles']); 
+            void this.router.navigate(['/my-articles']); 
           } else {
             alert('Nepodařilo se smazat článek. Zkuste to prosím znovu.');
           }
@@ -34,8 +34,8 @@ export class MyArticleDetail {
     }
   }
 
-  goBackToList() {
-    this.router.navigate(['/my-articles']);
+  goBackToList(): Promise<boolean> {
+    return this.router.navigate(['/my-articles']);
   }
 
   currentArticle = computed(() => {

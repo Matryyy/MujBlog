@@ -1,8 +1,8 @@
 @import "https://jsdelivr.net";
 
 body {
-  background-color: #f7f5f0 !important; /* Teplé krémové / béžové pozadí */
-  color: #2c3e35 !important; /* Temná borovicová pro skvělou čitelnost textu */
+  background-color: #f7f5f0 !important; 
+  color: #2c3e35 !important; 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
@@ -25,12 +25,12 @@ nav {
 }
 
 nav strong {
-  color: #556b2f; /* Šalvějový zvýrazněný nápis Můj Blog */
+  color: #556b2f; 
   font-size: 1.2rem;
 }
 
 nav a {
-  color: #697d73 !important; /* Tlumená zelenkavá pro odkazy */
+  color: #697d73 !important; 
   font-weight: 600;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -40,28 +40,28 @@ nav a {
 
 nav a:hover {
   color: #2c3e35 !important;
-  background-color: #f0ede4; /* Jemné ztmavnutí při hoveru */
+  background-color: #f0ede4; 
 }
 
-/* --- Nadpisy --- */
+
 h2, h3 {
   color: #2c3e35;
   font-weight: 700;
 }
 
-/* --- Mřížka článků --- */
+
 .article-grid {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
-  max-width: 800px; /* Omezí šířku článků, aby text nebyl příliš roztahaný na široké obrazovce */
+  max-width: 800px; 
   margin-left: auto;
   margin-right: auto;
 }
 
 
-/* --- Krásné čistě bílé karty na béžovém pozadí --- */
+
 .article-card {
   background-color: #ffffff !important;
   margin: 0 !important;
@@ -75,7 +75,7 @@ h2, h3 {
   justify-content: space-between;
 }
 
-/* Efekt plynulého povyskočení karty při najetí */
+
 .article-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(44, 62, 53, 0.08) !important;
@@ -83,7 +83,7 @@ h2, h3 {
 }
 
 .article-card h3 {
-  color: #4a6149; /* Nadpisy článků v příjemné olivově zelené */
+  color: #4a6149; 
   font-size: 1.4rem;
   margin-bottom: 0.75rem;
 }
@@ -93,9 +93,9 @@ h2, h3 {
   line-height: 1.6;
 }
 
-/* --- Tlačítka (Šalvějově zelená) --- */
+
 [role="button"], button, button[type="submit"] {
-  background-color: #607d6a !important; /* Matná šalvějová zelená */
+  background-color: #607d6a !important; 
   border-color: #607d6a !important;
   color: #ffffff !important;
   border-radius: 12px !important;
@@ -105,15 +105,15 @@ h2, h3 {
 }
 
 [role="button"]:hover, button:hover {
-  background-color: #4a6152 !important; /* Tmavší zelená při stisku */
+  background-color: #4a6152 !important; 
   border-color: #4a6152 !important;
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(96, 125, 106, 0.3) !important;
 }
 
-/* Tlačítka "outline" uvnitř karet článků */
+
 .card-actions a.outline {
-  background-color: #f5f3ec !important; /* Světle krémová tlačítka uvnitř karet */
+  background-color: #f5f3ec !important; 
   color: #4a5d54 !important;
   border: 1px solid #e1dbcf !important;
   padding: 0.6rem 1.2rem;
@@ -131,7 +131,7 @@ h2, h3 {
   border-color: #c2baa6 !important;
 }
 
-/* --- Styl pro formuláře a detaily --- */
+
 .form-container, .article-detail-container {
   background-color: #ffffff;
   padding: 2.5rem;
@@ -147,6 +147,6 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-  border-color: #607d6a !important; /* Šalvějové ohraničení při psaní */
+  border-color: #607d6a !important; 
   box-shadow: 0 0 0 3px rgba(96, 125, 106, 0.15) !important;
 }
