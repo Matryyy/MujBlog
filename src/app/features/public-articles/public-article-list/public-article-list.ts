@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-public-article-list',
-  standalone: true,
   imports: [ArticleComponent], 
   templateUrl: './public-article-list.html',
   styleUrls: ['./public-article-list.css'],

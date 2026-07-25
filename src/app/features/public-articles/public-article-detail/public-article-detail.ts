@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { PublicArticles } from '../../../services/public-articles.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { switchMap, filter, Observable } from 'rxjs';
+import { switchMap, filter, from } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router'; 
 import { DatePipe } from '@angular/common';
@@ -10,7 +10,6 @@ import { ButtonComponent } from '../../../components/button/button';
 
 @Component({
   selector: 'app-public-article-detail',
-  standalone: true,
   imports: [DatePipe, ButtonComponent], 
   templateUrl: './public-article-detail.html',
   styleUrl: './public-article-detail.css',
@@ -23,8 +22,7 @@ export class PublicArticleDetail {
   readonly article = toSignal(
     toObservable(this.id).pipe(
       filter((currentId): currentId is string => !!currentId),
-      switchMap((currentId) => this.publicArticlesService.getPublicArticleByID(currentId) as Observable<Article | undefined>)
-    ),
+      switchMap((currentId) => from(this.publicArticlesService.getPublicArticleByID(currentId) as Promise<Article>))),
     { initialValue: null }
   );
 

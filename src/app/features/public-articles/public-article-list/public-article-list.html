@@ -5,7 +5,7 @@
 
   <div class="article-grid">
     @for (article of publicArticles(); track article.id) {
-      <app-article [article]="article"></app-article>
+      <app-article [article]="article" />
     } @empty {
         <p class="loading-text">Načítání článků z internetu...</p>
     }

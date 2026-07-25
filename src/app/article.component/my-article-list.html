@@ -8,7 +8,7 @@
     @for (article of myArticles(); track article.id) {
       <app-article 
         [article]="article" 
-        [adminMode]="true"
+        [isAdminMode]="true"
         (delete)="onArticleDelete(article.id)">
       </app-article>
     } @empty {
