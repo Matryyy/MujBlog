@@ -22,7 +22,7 @@ export class PublicArticleDetail {
   readonly article = toSignal(
     toObservable(this.id).pipe(
       filter((currentId): currentId is string => !!currentId),
-      switchMap((currentId) => from(this.publicArticlesService.getPublicArticleByID(currentId) as Promise<Article>))),
+      switchMap((currentId) => from(this.publicArticlesService.getPublicArticleByID(currentId) as unknown as Promise<Article>))),
     { initialValue: null }
   );
 

@@ -1,7 +1,7 @@
 <div class="form-container">
     <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
-        <h2>{{ isEditMode ? 'Úprava článku' : 'Vytvoření nového článku' }}</h2>
-
+        <h2>{{ isEditMode() ? 'Úprava článku' : 'Vytvoření nového článku' }}</h2>
+        
         <div class="form-group">
             <label for="title">Titulek článku:</label>
             <input id="title" type="text" formControlName="title" placeholder="Napiš název...">
@@ -14,7 +14,7 @@
 
         <div class="form-actions" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
             <app-button 
-              [label]="isEditMode ? 'Uložit změny' : 'Vytvořit článek'" 
+              [label]="isEditMode() ? 'Uložit změny' : 'Vytvořit článek'" 
               type="primary" 
               [disabled]="articleForm.invalid"
               (btnClick)="onSubmit()">
