@@ -1,0 +1,13 @@
+<div class="public-articles-container">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h2>Veřejné články</h2>
+  </div>
+
+  <div class="article-grid">
+    @for (article of publicArticles(); track article.id) {
+      <app-article [article]="article" />
+    } @empty {
+        <p class="loading-text">Načítání článků z internetu...</p>
+    }
+  </div>
+</div>

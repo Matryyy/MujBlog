@@ -1,0 +1,38 @@
+@if (currentArticle(); as article) {
+  <div class="article-detail-container">
+    <app-button
+      label="← Zpět na seznam"
+      type="secondary"
+      (btnClick)="goBackToList()">
+    </app-button>
+
+    <article class="article-content">
+      <h2>{{ article.title }}</h2>
+      <p class="meta-info">Vytvořeno: {{ article.created_at | date:'d. M. yyyy' }}</p>
+      <div class="content-body">
+        <p>{{ article.content }}</p>
+      </div>
+    </article>
+
+    <hr>
+
+    <div class="article-actions">
+      <app-button
+        label="Upravit článek"
+        type="primary"
+        [routerLink]="['/my-articles/edit', article.id]">
+      </app-button>
+      <app-button
+        label="Smazat článek"
+        type="danger"
+        (btnClick)="deleteArticle(article.id)">
+      </app-button>
+    </div>
+  </div>
+} @else {
+  <div class="not-found-container">
+    <h2>Článek nenalezen</h2>
+    <p>Je nám líto, ale požadovaný článek se nepodařilo najít.</p>
+    <app-button label="Zpět na seznam mých článků" type="primary" (btnClick)="goBackToList()"></app-button>
+  </div>
+}

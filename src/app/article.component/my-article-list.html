@@ -1,0 +1,18 @@
+<div class="my-articles-container">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h2>Moje články</h2>
+    <a [routerLink]="['/my-articles/new']" role="button" class="primary">Vytvořit nový článek</a>
+  </div>
+
+  <div class="article-grid">
+    @for (article of myArticles(); track article.id) {
+      <app-article 
+        [article]="article" 
+        [isAdminMode]="true"
+        (delete)="onArticleDelete(article.id)">
+      </app-article>
+    } @empty {
+      <p>Zatím jste nenapsali žádné články. Můžete <a routerLink="/my-articles/new">vytvořit svůj první</a>.</p>
+    }
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<article class="article-card">
+    <div>
+        <h3>{{ article().title }}</h3>
+        @if (!isAdminMode()) {
+            <p class="article-author">
+                Autor: {{ article().author || 'Neznámý' }}
+            </p>
+        }
+        <p class="article-preview">{{ (article().text || article().content) | preview:100 }}</p>
+    </div>
+    
+    <div class="card-actions">
+        @if (isAdminMode()) {
+            <a routerLink="/my-articles/{{ article().id }}" role="button" class="secondary">Zobrazit</a>
+            <a routerLink="/my-articles/edit/{{ article().id }}" role="button" class="contrast">Upravit</a>
+            <app-button label="Smazat" type="danger" (btnClick)="onDelete()"></app-button>
+        } @else {
+            <a [routerLink]="['/public-articles', article().id]" role="button" class="outline">
+              Zobrazit detail
+            </a>
+        }
+    </div>
+</article>

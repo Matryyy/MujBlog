@@ -1,0 +1,23 @@
+<div class="public-article-detail-container">
+    @if (article(); as item) {
+        <article class="public-article">
+            <h1>{{ item.title }}</h1>
+            <p style="color: #697d73; font-weight: 600; margin-bottom: 2rem;">
+              Napsal(a): {{ item.author }} • {{ item.created_at | date:'longDate' }}
+            </p>
+            <div class="article-body" style="white-space: pre-line; line-height: 1.7;">
+                {{ item.text }} 
+            </div>
+        </article>
+    } @else {
+        <p class="loading-text">Načítání článku...</p>
+    }
+
+    <hr style="margin-top: 3rem;">
+    
+    <app-button 
+      label="Zpět na seznam veřejných článků" 
+      type="secondary" 
+      (btnClick)="goBackToList()">
+    </app-button>
+</div>

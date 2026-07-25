@@ -1,0 +1,24 @@
+<div>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <h2 style="margin: 0;">Moje články</h2>
+    </div>
+    <a routerLink="/my-articles/new" role="button" style="margin: 0;">✍ Nový článek</a>
+  </div>
+
+  <div class="article-grid">
+    @for (article of articles(); track article.id) {
+        <article class="article-card">
+            <div>
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.content }}</p>
+            </div>
+            <div class="card-actions" style="display: flex; gap: 0.75rem; margin-top: 1.5rem; align-items: center;">
+                <a [routerLink]="['/my-articles', article.id]" class="outline">Detail</a>
+            </div>
+        </article>
+    } @empty {
+        <p>Zatím nemáte žádné články.</p>
+    }
+  </div>
+</div>
